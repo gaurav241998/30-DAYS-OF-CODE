@@ -1,0 +1,107 @@
+SOLUTION - 
+1st - 
+//Initial Template for C++
+
+#include<bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+
+
+//User function Template for C++
+
+
+class Solution{
+	public:
+    	long long findNth(long long N)
+    {
+        long long base10num = N;
+        long long base9num = 0;
+        long long pos = 1;
+        while( base10num>0 )
+        {
+            // taking remainder with 9
+            base9num += pos * (base10num%9);
+            // dividing number with 9
+            base10num /= 9;
+            // multiplying position with 10
+            pos *= 10;
+        }
+       
+       return base9num; 
+    }
+};
+
+// { Driver Code Starts.
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		long long n , ans;
+		cin>>n;
+		Solution obj;
+		ans = obj.findNth(n);
+		cout<<ans<<endl;
+	}
+}
+
+  // } Driver Code Ends
+  
+  2nd - 
+  //Initial Template for C++
+
+#include<bits/stdc++.h>
+using namespace std;
+
+ // } Driver Code Ends
+
+
+//User function Template for C++
+
+
+class Solution{
+	public:
+    	long long findNth(long long N)
+    {
+        long long i = 1;
+        long long ans = 0;
+       if(N<9)
+       {
+           ans = N;
+       }
+       else 
+       {
+            while(N>0)
+             {
+                ans += (N%9)*i;
+                 N = N/9;
+                i = i*10;
+             }
+       }
+        return ans;
+    }
+};
+
+// { Driver Code Starts.
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		long long n , ans;
+		cin>>n;
+		Solution obj;
+		ans = obj.findNth(n);
+		cout<<ans<<endl;
+	}
+}
+
+  // } Driver Code Ends
+  
+  
+  LEARNINGS OF THE DAY - 
+  1. when someone asked that please write the nth natural number without taking the numbers with specific digit so convert that number to the base of that digit.
+  2. How to find the number with the different base just only keep ondividing that number with that different base until the number becomes zero and keep track of remainder which are new digits.
